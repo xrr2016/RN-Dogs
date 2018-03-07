@@ -6,11 +6,13 @@ const styles = StyleSheet.create({
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#5f27cd'
+    backgroundColor: '#FF6464'
   },
   text: {
     color: '#fff',
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 15
   }
 })
 

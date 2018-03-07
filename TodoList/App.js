@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { View, ScrollView, StyleSheet, TextInput, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Input from './components/Input'
+import List from './components/List'
 
 // import { actionCreators } from '../redux/todoRedux'
 
@@ -27,10 +29,12 @@ class App extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Header>Todo List</Header>
-        <Footer />
-      </ScrollView>
+        <Input placeholder={'What you want to do?'} />
+        <List />
+        <Footer>Remove completed items</Footer>
+      </View>
     )
   }
 }

@@ -3,21 +3,24 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   footer: {
-    height: 80,
+    height: 50,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderTopColor: '#eee',
+    borderTopWidth: 1,
+    backgroundColor: '#f5f5f5'
   },
   text: {
-    color: 'indigo',
-    fontSizer: 16
+    color: '#FF6464',
+    fontSize: 16
   }
 })
 
 export default class Footer extends Component {
   render() {
     return (
-      <TouchableOpacity>
-        <Text style={styles.text}>Remove completed items</Text>
+      <TouchableOpacity style={styles.footer}>
+        <Text style={styles.text}>{this.props.children}</Text>
       </TouchableOpacity>
     )
   }
