@@ -1,1 +1,1 @@
-# my-react-native-app-collection
+# A react-native app used Dog API
