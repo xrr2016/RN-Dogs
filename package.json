@@ -23,7 +23,10 @@
     "expo": "^25.0.0",
     "mobx": "^3.6.1",
     "mobx-react": "^4.4.3",
+    "native-base": "^2.3.9",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-native": "0.52.0",
+    "react-native-image-progress": "^1.1.0",
+    "react-native-vector-icons": "^4.5.0"
   }
 }
