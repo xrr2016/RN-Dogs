@@ -15,7 +15,7 @@ export default class Setup extends Component {
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
       Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf')
     })
-    // this.setState({ isReady: true })
+    this.setState({ isReady: true })
   }
 
   render() {
