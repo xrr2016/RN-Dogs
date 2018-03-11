@@ -1,19 +1,35 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { StackNavigator } from 'react-navigation'
+import React, {Component} from 'react'
+import { Container, Content, Footer, FooterTab, Button, Icon } from 'native-base'
 
-class Home extends Component {
+export default class HomeScreen extends Component {
+  static navigationOptions = {
+    title: '全站榜'
+  }
+
   render () {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-      </View>
+      <Container>
+        <Content />
+        <Footer>
+          <FooterTab>
+            <Button active>
+              <Icon active name='stats' />
+            </Button>
+            <Button>
+              <Icon name='list' />
+            </Button>
+            <Button>
+              <Icon name='camera' />
+            </Button>
+            <Button >
+              <Icon name='navigate' />
+            </Button>
+            <Button>
+              <Icon name='person' />
+            </Button>
+          </FooterTab>
+        </Footer>
+      </Container>
     )
   }
 }
-
-export default StackNavigator({
-  Home: {
-    screen: Home
-  }
-})
