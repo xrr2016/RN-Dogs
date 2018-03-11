@@ -1,8 +1,8 @@
 import Expo from 'expo'
 import React, {Component} from 'react'
-import {StyleSheet, Image, View} from 'react-native'
+import {StyleSheet, Image, View,} from 'react-native'
 
-import Navigation from './src/Navigation'
+import Navigator from './src/navigator'
 
 const styles = StyleSheet.create({
   container: {
@@ -39,7 +39,7 @@ export default class App extends Component {
         </View>
       )
     } else {
-      return <Navigation />
+      return <Navigator />
     }
   }
 }
