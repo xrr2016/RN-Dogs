@@ -34,9 +34,9 @@ export default class HomeScreen extends Component {
   }
 
   componentWillMount = async() => {
-    const res = await fetch('https://www.bilibili.com/index/rank/all-07-0.json').then(res => res.json())
-    this.setState({datas: res.rank.list})
-    console.log(this.state.datas[0])
+    // const res = await fetch('https://www.bilibili.com/index/rank/all-07-0.json').then(res => res.json())
+    // this.setState({datas: res.rank.list})
+    // console.log(this.state.datas[0])
   }
 
   render() {
@@ -67,7 +67,10 @@ export default class HomeScreen extends Component {
             </ScrollView>
           </Tab>
           <Tab heading='动画'>
-            <Text>Tab2</Text>
+           <Container>
+             <Button transparent 
+               onPress={() => this.props.navigation.navigate('Play')}><Icon name="play" /></Button>
+            </Container>
           </Tab>
           <Tab heading='国创相关'>
             <Text>Tab3</Text>

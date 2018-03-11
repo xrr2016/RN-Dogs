@@ -2,6 +2,7 @@ import {StackNavigator} from 'react-navigation'
 
 import Home from '../screen/Home'
 import Play from '../screen/Play'
+import Likes from '../screen/Likes'
 
 export default StackNavigator({
   Home: {
@@ -9,6 +10,9 @@ export default StackNavigator({
   },
   Play: {
     screen: Play
+  },
+  Likes: {
+    screen: Likes
   }
 }, {
   initialRouteName: 'Home',

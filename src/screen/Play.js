@@ -1,13 +1,28 @@
 import React, {Component} from 'react'
-import {Text, View} from 'react-native'
-import { StackNavigator } from 'react-navigation'
+import { StyleSheet, WebView } from 'react-native'
+import { Container, Header, Text, Toast } from 'native-base'
+
+const styles = {
+  web: {
+    flex: 1
+  }
+}
 
 export default class Play extends Component {
+
+  handleLoadStart = () => {}
+  handleLoadError = () => {}
+
   render () {
     return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
+      <Container>
+        <Header />
+        <WebView
+          style={styles.web} 
+          mediaPlaybackRequiresUserAction={false}
+          allowsInlineMediaPlayback={true}
+          source={{uri: 'https://www.bilibili.com/video/av20448655/'}} />
+      </Container>
     )
   }
 }
