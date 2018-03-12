@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { StyleSheet, WebView } from 'react-native'
-import { Container, Header, Text, Toast } from 'native-base'
+import { Container, Header, Text, Toast, Fab } from 'native-base'
 
 const styles = {
   web: {
@@ -11,17 +11,22 @@ const styles = {
 export default class Play extends Component {
 
   handleLoadStart = () => {}
-  handleLoadError = () => {}
+  handleLoadError = () => {
+    
+  }
 
   render () {
+   
+    const { params } = this.props.navigation.state
+    const uri = `https://www.bilibili.com/video/av${params.aid}`
     return (
       <Container>
-        <Header />
         <WebView
+          onError = {this.handleLoadError}
           style={styles.web} 
           mediaPlaybackRequiresUserAction={false}
           allowsInlineMediaPlayback={true}
-          source={{uri: 'https://www.bilibili.com/video/av20448655/'}} />
+          source={{uri}} />
       </Container>
     )
   }

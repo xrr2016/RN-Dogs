@@ -1,112 +1,83 @@
 import React, {Component} from 'react'
-import {StyleSheet, ScrollView} from 'react-native'
+import {StyleSheet, StatusBar, ScrollView, Touchable} from 'react-native'
 import {
   Container,
   Content,
-  Header,
-  Footer,
-  FooterTab,
   Button,
   Text,
   Icon,
   Tabs,
   Tab,
-  ScrollableTab,
   List,
-  ListItem,
-  Thumbnail,
-  Body,
+  ScrollableTab,
   Title,
-  Right,
-  Left
+  Spinner
 } from 'native-base'
 
+// import AppHeader from '../components/AppHeader'
+import AppFooter from '../components/AppFooter'
+import AppListItem from '../components/AppListItem'
+
+import BiliRanks from '../api'
+
 const styles = StyleSheet.create({
-  scrollContainer: {
+  tabs: {
+    backgroundColor: '#f7f7f7'
+  },
+  stab: {
+    borderBottomWidth: 0
+  },
+  tab: {
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: {
+      bottom: -1
+    },
+    shadowOpacity: 0.15
+  },
+  scroll: {
     flex: 1
   }
 })
 
 export default class HomeScreen extends Component {
-
   state = {
-    datas: []
+    list: []
   }
 
-  componentWillMount = async() => {
-    // const res = await fetch('https://www.bilibili.com/index/rank/all-07-0.json').then(res => res.json())
-    // this.setState({datas: res.rank.list})
-    // console.log(this.state.datas[0])
+  async componentDidMount() {
+    const {rank} = await BiliRanks.getWholeSite()
+    this.setState({list: rank.list})
+  }
+
+  renderList = (list) => {
+    if (!list) {
+      return <Spinner color='#327bf6'/>
+    }
+    return (
+      <List
+        dataArray={list}
+        renderRow={(item, index) => <AppListItem {...item} navigation={this.props.navigation}/>}/>
+    )
+  }
+
+  handlePress = (event) => {
+    console.dir(event)
   }
 
   render() {
-    const {datas} = this.state
     return (
       <Container>
-        <Header hasTabs>
-          <Body>
-            <Title>全站榜</Title>
-          </Body>
-        </Header>
-        <Tabs style={styles.tabs} renderTabBar={() => <ScrollableTab/>}>
+        <Tabs
+          renderTabBar={() => <ScrollableTab style={styles.stab}/>}
+          style={styles.tabs}>
           <Tab heading='全站'>
-            <ScrollView style={styles.scrollContainer}>
-              {datas
-                ? <List
-                    dataArray={datas}
-                    renderRow={data => <ListItem thumbnail>
-                    <Left>
-                      <Thumbnail square large source={{uri: data.pic}}/>
-                    </Left>
-                    <Body>
-                      <Text>{data.title}</Text>
-                      <Text numberOfLines={1} note>{data.author}{data.duration}</Text>
-                    </Body>
-                  </ListItem>}/>
-                : 'loading...'}
+            <ScrollView style={styles.scroll}>
+              {this.renderList(this.state.list)}
             </ScrollView>
-          </Tab>
-          <Tab heading='动画'>
-           <Container>
-             <Button transparent 
-               onPress={() => this.props.navigation.navigate('Play')}><Icon name="play" /></Button>
-            </Container>
-          </Tab>
-          <Tab heading='国创相关'>
-            <Text>Tab3</Text>
-          </Tab>
-          <Tab heading='音乐'>
-            <Text>Tab3</Text>
-          </Tab>
-          <Tab heading='Tab3'>
-            <Text>Tab3</Text>
-          </Tab>
-          <Tab heading='Tab3'>
-            <Text>Tab3</Text>
-          </Tab>
-          <Tab heading='Tab3'>
-            <Text>Tab3</Text>
-          </Tab>
+          </Tab >
         </Tabs>
-        <Footer>
-          <FooterTab>
-            <Button active>
-              <Icon active name='stats'/>
-            </Button>
-            <Button>
-              <Icon name='list'/>
-            </Button>
-            <Button>
-              <Icon name='camera'/>
-            </Button>
-            <Button >
-              <Icon name='navigate'/>
-            </Button>
-            <Button>
-              <Icon name='person'/>
-            </Button>
-          </FooterTab>
-        </Footer>
+        <AppFooter/>
       </Container>
     )
   }

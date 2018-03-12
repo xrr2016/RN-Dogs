@@ -16,15 +16,11 @@ export default StackNavigator({
   }
 }, {
   initialRouteName: 'Home',
-  headerMode: "none",
+  // headerMode: "none",
   navigationOptions: {
+    headerTitle: 'BILIBILI 排行榜',
     headerStyle: {
-      backgroundColor: '#3F51B5',
-      borderBottomColor: 'transparent'
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold'
+      borderBottomWidth: 0
     }
   }
 })
