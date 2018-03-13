@@ -1,5 +1,5 @@
 # Bilibili Rank
 
-![ios](./demo.ios.gif)
+![ios](./demo/demo.ios.png)
 
 未完待续。。。

@@ -1,15 +1,11 @@
 {
-  "expo": {
-    "name": "Bilibili Rank",
-    "icon": "./assets/logo.png",
-    "version": "0.1.0",
-    "slug": "github.com/xrr2016/bilibili-rank",
-    "sdkVersion": "25.0.0",
-    "ios": {
-      "bundleIdentifier": "xrr2016.bilibili-rank"
-    },
-    "android": {
-      "package": "xrr2016.bilibili-rank"
-    }
-  }
+	"expo": {
+		"name": "Bilibili Rank",
+		"version": "0.1.0",
+		"sdkVersion": "25.0.0",
+		"ios": {
+			"bundleIdentifier": "xrr2016.bilibili-rank"
+		},
+		"android": {}
+	}
 }
